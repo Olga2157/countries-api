@@ -1,1 +1,1 @@
-web: npm install && ts-node src/bootstrap.ts
+web: npm install && tsc && ts-node src/bootstrap.ts

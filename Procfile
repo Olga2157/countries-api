@@ -1,1 +1,1 @@
-web: npm install && tsc && node dist/bootstrap.js
+web: node dist/bootstrap.js

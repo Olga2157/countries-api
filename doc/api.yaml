@@ -14,7 +14,12 @@ paths:
       summary: Get country by country name
       description: Get country by country name
       parameters:
-        - $ref: "#/components/parameters/UserId"
+        - in: path
+          name: countryName
+          schema:
+            type: string
+          required: true
+          description: Country Name
       responses:
         "200":
           description: Country response

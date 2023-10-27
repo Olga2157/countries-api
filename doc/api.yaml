@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: Countries Project
+  description: Countries API
+  version: "1.0.0"
+
+servers:
+  - url: http://localhost:8888
+    description: dev server
+
+paths:
+  /countries/{country}:
+    get:
+      summary: Get country by country name
+      description: Get country by country name
+      parameters:
+        - $ref: "#/components/parameters/UserId"
+      responses:
+        "200":
+          description: Country response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Country"
+
+components:
+  schemas:
+    Country:
+      type: object
+      properties:
+        name:
+          type: object
+          properties:
+            common:
+              type: string
+              example: Ireland
+            official:
+              type: string
+              example: Republic of Ireland
+        capital:
+          type: string[]
+          example: ["Dublin"]
+        area:
+          type: number
+          example: 213243
+        region:
+          type: string
+          enum:
+            - Africa
+            - Americas
+            - Antarctic
+            - Asia
+            - Europe
+            - Oceania
+          example: Europe
+        subregion:
+          type: string
+          example: "Northern Europe"
+        languages:
+          type: object
+          example: { "nld": "Dutch", "pap": "Papiamento" }
+        latlng:
+          type: number[]
+          example: [3123.1, 124.241]
+        maps:
+          type: object
+          properties:
+            googleMaps:
+              type: string
+              example: "https://goo.gl/maps/hxd1BKxgpchStzQC6"
+            openStreetMaps:
+              type: string
+              example: "https://www.openstreetmap.org/relation/62273"
+        population:
+          type: number
+          example: 4342342
+        continents:
+          type: string[]
+          enum:
+            - Africa
+            - Antarctica
+            - Asia
+            - Europe
+            - NorthAmerica
+            - Oceania
+            - SouthAmerica
+          example: [Europe, Asia]
+        flags:
+          type: object
+          properties:
+            png:
+              type: string
+              example: "test.png"
+            svg:
+              type: string
+              example: "test.svg"
+            alt:
+              type: string
+              example: "Test image"
+        coatOfArms:
+          type: object
+          properties:
+            png:
+              type: string
+              example: "test.png"
+            svg:
+              type: string
+              example: "test.svg"

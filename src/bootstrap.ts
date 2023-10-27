@@ -1,4 +1,3 @@
-import { PORT } from './config';
 import app from './app';
 import { errors } from './messages';
 
@@ -26,5 +25,4 @@ process.on('uncaughtException', (error): void => {
   process.exit(1);
 });
 
-// await untill all the staff started (db connection) and run
-app.start(PORT);
+app.start();

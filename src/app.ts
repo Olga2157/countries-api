@@ -8,7 +8,6 @@ import YAML from 'yamljs';
 import cors from 'cors';
 
 const app = express();
-const port = process.env.PORT || 8888;
 let server: Server;
 const swaggerDocument = YAML.load('./doc/api.yaml');
 
@@ -27,8 +26,9 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 export default {
-  async start(port: number): Promise<Server> {
-    server = app.listen(process.env.PORT || 8888, () => {
+  async start(): Promise<Server> {
+    const port = process.env.PORT || 8888;
+    server = app.listen(port, () => {
       console.log(`Server is listening on ${port} port`);
     });
     return server;

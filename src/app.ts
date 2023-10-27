@@ -28,7 +28,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 export default {
   async start(port: number): Promise<Server> {
-    server = app.listen(port, () => {
+    server = app.listen(process.env.PORT || 8888, () => {
       console.log(`Server is listening on ${port} port`);
     });
     return server;
